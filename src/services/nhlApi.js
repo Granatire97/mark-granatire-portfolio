@@ -1,4 +1,4 @@
-export async function getStandings() {
+/* export async function getStandings() {
   // Use the Vite dev-server proxy to avoid CORS issues in the browser.
   // The NHL endpoint `/v1/standings/now` redirects to `/v1/standings/{YYYY-MM-DD}`.
   // Redirects can cause the browser to follow cross-origin and then CORS fails,
@@ -57,4 +57,20 @@ export async function getStandings() {
     // (Direct may still be blocked by CORS, but this gives better error detail.)
     return await tryFetchMany(directUrlsToTry, "Direct");
   }
+} */
+
+export async function getStandings() {
+  const isLocal = window.location.hostname === "localhost";
+
+  const url = isLocal
+    ? "https://api-web.nhle.com/v1/standings/now" // local direct call
+    : "/api/standings"; // production (Vercel proxy)
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch standings");
+  }
+
+  return response.json();
 }
