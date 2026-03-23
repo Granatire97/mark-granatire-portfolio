@@ -17,6 +17,24 @@ Coming Soon
 - **Education** — M.S. Data Science (Loyola Maryland), B.S. Information Science & Technology (Penn State).
 - **Contact** — Email and profile links.
 
+## Data Pipeline (NHL Standings Tool)
+
+1. Data Ingestion
+- Fetch standings from NHL API (api-web.nhle.com)
+
+2. Data Transformation
+- Flatten nested JSON into tabular format
+- Select key metrics: GP, W, L, OT, PTS, GD
+- Normalize team naming and abbreviations
+
+3. Data Delivery
+- Processed data passed into React table component
+- Rendered via reusable UI components
+
+4. Refresh Strategy
+- Data fetched on page load
+- Designed to support scheduled daily refresh (future improvement)
+
 ## Tech stack
 
 | Area | Tools |
@@ -54,7 +72,7 @@ my-portfolio/
 ## Getting started
 
 ```bash
-git clone <your-repo-url>
+git clone [<your-repo-url>](https://github.com/Granatire97/mark-granatire-portfolio)
 cd my-portfolio
 npm install
 npm run dev
