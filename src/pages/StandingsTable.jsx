@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { getStandings } from "../services/nhlApi"; // adjust path/filename
+import { getStandings } from "../services/nhlApi";
+import { transformStandings } from "../data/transformStandings";
 
 export default function StandingsTable() {
   const [rows, setRows] = useState([]);
@@ -9,18 +10,7 @@ export default function StandingsTable() {
     (async () => {
       try {
         const data = await getStandings();
-        const mappedRows = (data?.standings ?? []).map((t) => ({
-          teamName: t?.teamName?.default ?? t?.teamCommonName?.default ?? "",
-          GP: t?.gamesPlayed ?? 0,
-          W: t?.wins ?? 0,
-          L: t?.losses ?? 0,
-          OTL: t?.otLosses ?? 0,
-          PTS: t?.points ?? 0,
-          Percentage:
-            t?.pointPctg != null ? Number(t.pointPctg).toFixed(3) : "",
-          GD: t?.goalDifferential ?? 0,
-          Clinched: t?.clinchIndicator,
-        }));
+        const mappedRows = transformStandings(data);
         setRows(mappedRows);
         console.log("standings data:", data);
         //setRows([]); // placeholder until you map the real fields
@@ -54,7 +44,7 @@ export default function StandingsTable() {
             <tr
               key={t.teamName}
               className={`border-b border-zinc-200 transition ${
-                index < 3 ? "bg-sky-50 font semibold" : "hover:bg-zinc-50"
+                index < 3 ? "bg-sky-50 font-semibold" : "hover:bg-zinc-50"
               }`}
             >
               <td className="px-3 py-2">{t.teamName}</td>
