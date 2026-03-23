@@ -4,7 +4,7 @@ Personal portfolio site for **Mark Granatire Jr**: data science, software develo
 
 ## Live site
 
-Coming Soon
+[Portfolio](https://markgranatirejr.io/)
 
 ## Features
 
@@ -59,6 +59,8 @@ my-portfolio/
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── index.css        # Tailwind entry (@import "tailwindcss")
+├── services/            # NHL API client (nhlApi.js)
+├── data/                # Data transformation layer (transformStandings.js)
 ├── index.html
 ├── vite.config.js       # React + Tailwind; dev/preview proxy for NHL API
 ├── package.json
@@ -89,9 +91,16 @@ Open the URL Vite prints (usually `http://localhost:5173`).
 | `npm run preview` | Serve `dist/` locally (includes NHL proxy like dev) |
 | `npm run lint` | Run ESLint |
 
-## NHL API and CORS
+## NHL API and Data Access
 
-Standings are fetched from `api-web.nhle.com`. Browsers can hit CORS issues on direct calls, so **development and preview** use a Vite proxy (`/nhl` → `https://api-web.nhle.com`) defined in `vite.config.js`. The client tries the proxy first, then falls back to direct URLs.
+The NHL API does not consistently allow direct browser requests due to CORS and redirect behavior.
+
+To handle this, a serverless API route is implemented for production deployment. This proxy layer:
+- Fetches standings data from the NHL API
+- Returns structured JSON to the frontend
+- Prevents client-side CORS issues
+
+In development, requests may be made directly or via a Vite proxy for convenience.
 
 **Important for production:** A static upload of `dist/` alone does **not** include that proxy. For a public deploy you typically need one of:
 
