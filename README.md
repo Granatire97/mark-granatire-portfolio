@@ -4,7 +4,7 @@ Personal portfolio site for **Mark Granatire Jr**: data science, software develo
 
 ## Live site
 
-After you deploy, add your production URL here (for example GitHub Pages, Vercel, or Netlify).
+Coming Soon
 
 ## Features
 
