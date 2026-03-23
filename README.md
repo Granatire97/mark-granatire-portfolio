@@ -8,7 +8,7 @@ Coming Soon
 
 ## Features
 
-- **Hero** — Introduction, social links ([GitHub](https://github.com/Granatire97), [LinkedIn](https://www.linkedin.com/in/mark-granatire-jr/)), email, and resume download (`MarkGranatire__Resume__2026.pdf` at project root; ensure it is copied to `public/` if you serve it from the static build).
+- **Hero** — Introduction, social links ([GitHub](https://github.com/Granatire97), [LinkedIn](https://www.linkedin.com/in/mark-granatire-jr/)), email, and resume download.
 - **About** — Portfolio goals and focus (technical depth, sports domain, polished presentation).
 - **Skills** — Grouped expertise: data engineering, analytics & modeling, software & visualization.
 - **Sample tool** — **2025–26 NHL standings** table fed by [NHL web API](https://api-web.nhle.com) data (`src/services/nhlApi.js`).
