@@ -72,7 +72,7 @@ my-portfolio/
 ## Getting started
 
 ```bash
-git clone [<your-repo-url>](https://github.com/Granatire97/mark-granatire-portfolio)
+git clone https://github.com/Granatire97/mark-granatire-portfolio
 cd my-portfolio
 npm install
 npm run dev
