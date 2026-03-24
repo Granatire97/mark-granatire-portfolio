@@ -67,7 +67,7 @@ function Hero() {
               <Mail />
             </a>
             <a
-              href="../public/MarkGranatire__Resume__2026.pdf"
+              href="/MarkGranatire__Resume__2026.pdf"
               className="transition hover:text-sky-500"
               aria-label="Resume"
             >
